@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proman", "Proman\Proman.csproj", "{02829F77-DE4D-4204-A6F4-BC0A18037EDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02829F77-DE4D-4204-A6F4-BC0A18037EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02829F77-DE4D-4204-A6F4-BC0A18037EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02829F77-DE4D-4204-A6F4-BC0A18037EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02829F77-DE4D-4204-A6F4-BC0A18037EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE5AAF87-403A-4E81-8187-EA1A22DACAA1}
+	EndGlobalSection
+EndGlobal
