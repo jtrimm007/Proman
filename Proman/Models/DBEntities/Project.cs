@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proman.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace Proman.Models.DBEntities
 {
     public class Project
     {
+
         [Key]
         public int Id { get; set; }
         [Required, MaxLength(30)]
@@ -16,7 +18,7 @@ namespace Proman.Models.DBEntities
         public DateTime StartDate { get; set; }
         [Required, DataType(DataType.DateTime)]
         public DateTime DueDate { get; set; }
-        public ICollection<ProjectRole> ProjectRoles { get; set; }
+        public ICollection<Person> PeopleAssignedToProject { get; set; }
 
     }
 }

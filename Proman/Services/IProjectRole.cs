@@ -12,5 +12,6 @@ namespace Proman.Services
         ICollection<ProjectRole> ReadAll();
         void Delete(int id);
         void Update(ProjectRole projectRole);
+        void Create(ProjectRole projectRole);
     }
 }

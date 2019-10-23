@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proman.Models.DBEntities;
+using Proman.Models.ViewModels;
 using Proman.Services;
 
 namespace Proman.Controllers
@@ -15,33 +16,45 @@ namespace Proman.Controllers
         private IRole _roleRepo;
         private IProjectRole _projectRoleRepo;
 
+        private ICollection<Person> PeopleFree { get; set; }
+
         public ProjectsController(IProject project, IPerson person, IRole role, IProjectRole projectRole)
         {
             _projectRepo = project;
             _personRepo = person;
             _roleRepo = role;
             _projectRoleRepo = projectRole;
+
         }
 
-        public IActionResult Details()
+        public IActionResult Details([Bind(Prefix="id")] int projectId)
         {
-            return View();
-        }
+            var proName = _projectRepo.Read(projectId);
+            Project project = new Project();
+            var projectRoleRepo = _projectRoleRepo.ReadAll();
 
-        [HttpPost]
-        public IActionResult Details(Person person)
-        {
-            var checkProjectPerson = _projectRepo.Read(person.Id);
+            project.Name = proName.Name;
+            project.Id = proName.Id;
 
-            if (checkProjectPerson != null)
+
+            foreach (var each in projectRoleRepo)
             {
-                _
-
-                _projectRepo.Add(project);
-                return RedirectToAction("Index", "Projects");
+                if(each.ProjectId == projectId)
+                {
+                    var person = _personRepo.Read(each.PersonId);
+                    project.PeopleAssignedToProject.Add(person);
+                }
             }
+
+            return View(project);
+        }
+
+        public IActionResult AssignPerson()
+        {
+
             return View();
         }
+
 
         public IActionResult DeleteProject(int id)
         {
@@ -85,13 +98,13 @@ namespace Proman.Controllers
 
         public IActionResult Edit(int id)
         {
-            var person = _projectRepo.Read(id);
+            var project = _projectRepo.Read(id);
 
-            if (person == null)
+            if (project == null)
             {
                 return RedirectToAction("Index", "Projects");
             }
-            return View(person);
+            return View(project);
         }
 
         [HttpPost]

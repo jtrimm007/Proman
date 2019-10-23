@@ -16,6 +16,12 @@ namespace Proman.Services
             _db = db;
         }
 
+        public void Create(ProjectRole projectRole)
+        {
+            _db.ProjectRole.Add(projectRole);
+            _db.SaveChanges();
+        }
+
         public void Delete(int id)
         {
             var projectRoleToDelete = Read(id);
@@ -33,7 +39,7 @@ namespace Proman.Services
 
         public ICollection<ProjectRole> ReadAll()
         {
-            return _db.ProjectRole.Include(p => p.Id).ToList();
+            return _db.ProjectRole.ToList();
         }
 
         public void Update(ProjectRole projectRole)

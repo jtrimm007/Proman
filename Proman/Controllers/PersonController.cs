@@ -79,7 +79,9 @@ namespace Proman.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var people = _personRepo.ReadAll();
+
+            return View(people);
         }
     }
 }

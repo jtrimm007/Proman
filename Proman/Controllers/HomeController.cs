@@ -25,9 +25,9 @@ namespace Proman.Controllers
         }
         public IActionResult Index()
         {
-            var people = _personRepo.ReadAll();
 
-            return View(people);
+
+            return View();
         }
 
         public IActionResult Privacy()
