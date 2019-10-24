@@ -156,3 +156,4 @@ C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\o
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.dll
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.pdb
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.csproj.CopyComplete
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.csprojAssemblyReference.cache

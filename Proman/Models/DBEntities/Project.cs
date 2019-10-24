@@ -20,5 +20,9 @@ namespace Proman.Models.DBEntities
         public DateTime DueDate { get; set; }
         public ICollection<Person> PeopleAssignedToProject { get; set; }
 
+        public Project()
+        {
+            PeopleAssignedToProject = new List<Person>();
+        }
     }
 }

@@ -35,31 +35,42 @@
             @Html.DisplayFor(model => model.DueDate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PeopleAssignedToProject)
+            People Assigned Count: 
         </dt>
 
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PeopleAssignedToProject)
+            @Html.DisplayFor(model => model.PeopleAssignedToProject.Count)
         </dd>
     </dl>
 </div>
-<a class="btn btn-primary" asp-action="AssignPerson" asp-controller="Projects" >Assign Person</a> 
-
-@if (Model.PeopleAssignedToProject != null)
-{
-    foreach (var item in Model.PeopleAssignedToProject)
-    {
+<a class="btn btn-primary" asp-action="AssignPerson" asp-controller="Projects" asp-route-id="@Model.Id">Assign Person</a> 
+<table>
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-controller="Projects" asp-route-id="@item.Id">Edit</a> |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                <a asp-action="DeleteProject" asp-controller="Projects" asp-route-id="@item.Id">Delete</a>
-            </td>
+            <th>
+                People Assigned
+            </th>
         </tr>
-    }
-}
+    </thead>
+    <tbody>
+        @if (Model.PeopleAssignedToProject != null)
+        {
+            foreach (var item in Model.PeopleAssignedToProject)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Projects" asp-route-id="@item.Id">Edit</a> |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        <a asp-action="DeleteProject" asp-controller="Projects" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
 
 
