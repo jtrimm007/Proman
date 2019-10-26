@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proman.Models;
+using Proman.Models.ViewModels;
 using Proman.Services;
 
 namespace Proman.Controllers
@@ -25,9 +26,18 @@ namespace Proman.Controllers
         }
         public IActionResult Index()
         {
+            var numberOfPeople = _personRepo.ReadAll().Count;
+            var numberOfProjects = _projectRepo.ReadAll().Count;
+            var numberOfRoles = _roleRepo.ReadAll().Count;
 
+            HomePageVM model = new HomePageVM
+            {
+                NumberOfPeople = numberOfPeople,
+                NumberOfProjects = numberOfProjects,
+                NumberOfRoles = numberOfRoles
+            };
 
-            return View();
+            return View(model);
         }
 
         public IActionResult Privacy()

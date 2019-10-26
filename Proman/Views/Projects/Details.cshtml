@@ -1,4 +1,4 @@
-﻿@model Proman.Models.DBEntities.Project
+﻿@model Proman.Models.ViewModels.ProjectDetailsVM
 
 @{
     ViewData["Title"] = "Details";
@@ -7,14 +7,14 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Project</h4>
+    <h4>ProjectDetailsVM</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
+            @Html.DisplayNameFor(model => model.ProjectId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Id)
+            @Html.DisplayFor(model => model.ProjectId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -35,42 +35,85 @@
             @Html.DisplayFor(model => model.DueDate)
         </dd>
         <dt class="col-sm-2">
-            People Assigned Count: 
+            @Html.DisplayNameFor(model => model.DaysLeft)
         </dt>
-
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PeopleAssignedToProject.Count)
+            @Html.DisplayFor(model => model.DaysLeft)
+        </dd>
+        <dt class="col-sm-2">
+            Number of People Assigned
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfPeopleAssigned)
         </dd>
     </dl>
 </div>
-<a class="btn btn-primary" asp-action="AssignPerson" asp-controller="Projects" asp-route-id="@Model.Id">Assign Person</a> 
+<a class="btn btn-primary" asp-action="AssignPerson" asp-controller="Projects" asp-route-id="@Model.ProjectId">Assign Person</a>
+<a class="btn btn-primary" asp-action="Edit" asp-controller="Projects" asp-route-id="@Model.ProjectId">Edit Project</a>
+<a class="btn btn-primary" asp-action="Index" asp-controller="Projects" asp-route-id="@Model.ProjectId">Back to Project List</a>
+
 <table>
     <thead>
         <tr>
             <th>
                 People Assigned
             </th>
+            <th>
+                Roles
+            </th>
+            <th>
+                Number of Roles
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @if (Model.PeopleAssignedToProject != null)
         {
-            foreach (var item in Model.PeopleAssignedToProject)
+            foreach (var item in Model.PersonRoles)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                        @Html.DisplayFor(modelItem => item.Key.FirstName) @Html.DisplayFor(modelItem => item.Key.LastName)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-controller="Projects" asp-route-id="@item.Id">Edit</a> |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        <a asp-action="DeleteProject" asp-controller="Projects" asp-route-id="@item.Id">Delete</a>
+                        @foreach (var each in item.Value)
+                        {
+
+                            @Html.DisplayFor(modelItem => each.Name)
+
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value.Count)
+                    </td>
+                    <td>
+                        <form asp-action="AssignRoleToPerson">
+                            <input name="personId" value="@item.Key.Id" type="hidden" asp-for="@item.Key.Id" />
+                            <input name="projectId" value="@Model.ProjectId" type="hidden" asp-for="@Model.ProjectId" />
+
+                            <input type="submit" value="Assign Role" class="btn btn-primary" />
+
+                        </form>
+                        <form asp-action="RemoveRoleFromPerson">
+                            <input name="personId" value="@item.Key.Id" type="hidden" asp-for="@item.Key.Id" />
+                            <input name="projectId" value="@Model.ProjectId" type="hidden" asp-for="@Model.ProjectId" />
+
+                            <input type="submit" value="Remove Role" class="btn btn-primary" />
+
+                        </form>
+                        <form asp-action="RemovePersonFromProject">
+                            <input name="personId" value="@item.Key.Id" type="hidden" asp-for="@item.Key.Id" />
+                            <input name="projectId" value="@Model.ProjectId" type="hidden" asp-for="@Model.ProjectId" />
+                            <input type="submit" value="Remove" class="btn btn-primary" />
+                        </form>
+                        @*<a class="btn btn-primary" asp-action="AssignRole" asp-controller="Projects" asp-route-id="@item.Key.Id">Assign Role</a>
+                        <a class="btn btn-primary" asp-action="RemoveRole" asp-controller="Projects" asp-route-id="@item.Key.Id">Remove Role</a>
+                        <a class="btn btn-primary" asp-action="RemovePerson" asp-controller="Projects" asp-route-id="@item.Key.Id">Remove</a>*@
+
                     </td>
                 </tr>
             }
         }
     </tbody>
 </table>
-
-
-

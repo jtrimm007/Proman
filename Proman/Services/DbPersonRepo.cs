@@ -41,6 +41,11 @@ namespace Proman.Services
             }
         }
 
+        public List<string> SelectAllPeopleById(int id)
+        {
+            return _db.Person.Where(x => x.Id == id).Select(x => new { x.FirstName, x.LastName}.ToString()).ToList();
+        }
+
         public Person Read(int id)
         {
             return _db.Person.FirstOrDefault(p => p.Id == id);

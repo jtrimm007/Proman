@@ -29,12 +29,39 @@ namespace Proman.Services
             if(projectRoleToDelete != null)
             {
                 _db.ProjectRole.Remove(projectRoleToDelete);
+                _db.SaveChanges();
             }
         }
 
+        public List<int> SelectPeopleOnProject(int id)
+        {
+            return _db.ProjectRole.Where(x => x.ProjectId == id).Select(x => x.PersonId).ToList();
+        }
+        public List<int> SelectProjectOnPeople(int id)
+        {
+            return _db.ProjectRole.Where(x => x.PersonId == id).Select(x => x.ProjectId).ToList();
+        }
+
+        public List<int> SelectRoleOnProjectByPersonId(int projectId, int personId)
+        {
+            return _db.ProjectRole.Where(x => x.ProjectId == projectId && x.PersonId == personId).Select(x => x.RoleId).ToList();
+
+        }
+
+        public decimal SumOfHourlyRateOnProjectById(int personId, int projectId, int roleId)
+        {
+            return _db.ProjectRole.Where(x => x.PersonId == personId
+            && x.ProjectId == projectId && x.RoleId == roleId).Select(x => x.HourlyRate).Sum();
+        }
+
+        public decimal HourlyRate(int personId, int projectId, int roleId)
+        {
+            return _db.ProjectRole.FirstOrDefault(x => x.PersonId == personId
+            && x.ProjectId == projectId && x.RoleId == roleId).HourlyRate;
+        }
         public ProjectRole Read(int id)
         {
-            return _db.ProjectRole.Include(p => p.Id).FirstOrDefault(p => p.Id == id);
+            return _db.ProjectRole.FirstOrDefault(p => p.Id == id);
         }
 
         public ICollection<ProjectRole> ReadAll()

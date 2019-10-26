@@ -13,5 +13,6 @@ namespace Proman.Services
         void Delete(int id);
         void Update(Person person);
         void Add(Person person);
+        List<string> SelectAllPeopleById(int id);
     }
 }

@@ -111,16 +111,6 @@ C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\ne
 C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Proman.dll
 C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Proman.pdb
 C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Proman.csproj.CopyComplete
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\appsettings.Development.json
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\appsettings.json
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.deps.json
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.runtimeconfig.json
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.runtimeconfig.dev.json
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.dll
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.pdb
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.Views.dll
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.Views.pdb
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.RazorAssemblyInfo.cache
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.RazorAssemblyInfo.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.AssemblyInfoInputs.cache
@@ -136,10 +126,13 @@ C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\o
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\Index.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\AddProject.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\AssignPerson.cshtml.g.cs
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\AssignRoleToPerson.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\DeleteProject.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\Details.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\Edit.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\Index.cshtml.g.cs
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\RemovePersonFromProject.cshtml.g.cs
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\RemoveRoleFromPerson.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\AddRole.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\DeleteRole.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\Edit.cshtml.g.cs
@@ -152,8 +145,19 @@ C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\o
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.RazorTargetAssemblyInfo.cache
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.RazorTargetAssemblyInfo.cs
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.Views.pdb
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.dll
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.pdb
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.deps.json
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.runtimeconfig.json
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.runtimeconfig.dev.json
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.dll
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.pdb
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.Views.dll
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\bin\Debug\netcoreapp2.2\Proman.Views.pdb
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.Views.pdb
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.csproj.CopyComplete
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.csprojAssemblyReference.cache
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\ProjectReport.cshtml.g.cs

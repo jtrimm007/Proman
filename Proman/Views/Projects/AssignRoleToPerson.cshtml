@@ -1,0 +1,65 @@
+﻿@model Proman.Models.ViewModels.AssignRoleToPersonVM
+
+@{
+    ViewData["Title"] = "AssignRoleToPerson";
+}
+
+<h1>AssignRoleToPerson</h1>
+
+<div>
+    <h4>AssignRoleToPersonVM</h4>
+    <hr />
+    <dl class="row">
+        <form asp-action="AssignRole">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PersonName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PersonName)
+                <input hidden name="PersonId" value="@Model.PersonId" asp-for="@Model.PersonId" />
+
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ProjectName)
+                <input hidden name="ProjectId" value="@Model.ProjectId" asp-for="@Model.PersonId" />
+
+            </dd>
+
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HourlyRate)
+            </dt>
+            <dd class="col-sm-10">
+                <input name="HourlyRate" value="@Model.HourlyRate" asp-for="@Model.HourlyRate" />
+
+
+            </dd>
+            <dt class="col-sm-2">
+                Available Roles
+            </dt>
+            <dd class="col-sm-10">
+                <select name="RoleId" id="RoleId">
+
+                    @foreach (var each in Model.Roles)
+                    {
+
+                        <option value="@each.Id" >
+                            @Html.DisplayFor(modelItem => each.Name)
+                        </option>
+                    }
+                </select>
+            </dd>
+
+            <input type="submit" value="Assign" class="btn btn-primary" />
+
+        </form>
+    </dl>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-action="Details" asp-controller="Projects" asp-route-id="@Model.ProjectId">
+        Back to Project Details</a>
+</div>

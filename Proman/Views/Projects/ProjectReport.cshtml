@@ -1,0 +1,109 @@
+﻿@model Proman.Models.ViewModels.ProjectReportVM
+
+@{
+    ViewData["Title"] = "ProjectReport";
+
+    decimal test;
+}
+
+<h1>ProjectReport</h1>
+
+<div>
+    <h4>ProjectReportVM</h4>
+    <hr />
+    <dl class="row">
+    </dl>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Project</th>
+            <th># of People</th>
+
+            <th>
+
+                People on project
+
+            </th>
+            <th>Roles</th>
+            <th>Hourly Rate</th>
+            <th>Total Hourly</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+        @foreach (var eachProject in Model.ListOfProjectsAndPeople)
+        {
+            <tr>
+                <td class="border">
+                    @Html.DisplayFor(modelItem => eachProject.Key.Name)
+                </td>
+                <td class="border">
+                    @Html.DisplayFor(modelItem => eachProject.Value.Count)
+                </td>
+                <td class="border">
+
+                    @foreach (var eachPerson in eachProject.Value)
+                    {
+                        <span>
+                            @Html.DisplayFor(modelItem => eachPerson.Key)
+                        </span><br />
+                    }
+                </td>
+                <td class="border">
+
+                    @foreach (var eachPerson in eachProject.Value)
+                    {
+                        <span>
+
+                            @foreach (var eachRole in eachPerson.Value)
+                            {
+                                <span>@Html.DisplayFor(modelItem => eachRole.Key.Name), </span>
+
+                            }
+                        </span><br />
+                    }
+                </td>
+                <td class="border">
+
+                    @foreach (var eachPerson in eachProject.Value)
+                    {
+                        <span>
+
+                            @foreach (var eachRole in eachPerson.Value)
+                            {
+                                <span>$@Html.DisplayFor(modelItem => eachRole.Value), </span>
+
+                            }
+                        </span><br />
+                    }
+                </td>
+                <td class="border">
+                    
+                    @foreach (var eachPerson in eachProject.Value)
+                    {
+                       
+                        <span>
+                            @(eachPerson.Value.Values.Sum())
+
+                            @foreach (var eachRole in eachPerson.Value)
+                            {
+
+
+                            }
+                        </span><br />
+                    }
+
+                </td>
+
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+<a class="btn btn-primary" asp-action="Index" asp-controller="Home">Back to Home Page</a>
