@@ -1,2 +1,5 @@
 
 *.config
+Proman/obj/Debug/netcoreapp2.2/Proman.dll
+Proman/Migrations/20191026182945_newUpdate.cs
+Proman/obj/Debug/netcoreapp2.2/Proman.dll
