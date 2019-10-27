@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Proman.Models.ViewModels
+﻿namespace Proman.Models.ViewModels
 {
+    /// <summary>
+    /// Defines the <see cref="HomePageVM" />
+    /// </summary>
     public class HomePageVM
     {
+        /// <summary>
+        /// Gets or sets the NumberOfProjects
+        /// </summary>
         public int NumberOfProjects { get; set; }
-        public int NumberOfPeople { get; set; }
-        public int NumberOfRoles { get; set; }
 
+        /// <summary>
+        /// Gets or sets the NumberOfPeople
+        /// </summary>
+        public int NumberOfPeople { get; set; }
+
+        /// <summary>
+        /// Gets or sets the NumberOfRoles
+        /// </summary>
+        public int NumberOfRoles { get; set; }
     }
 }
