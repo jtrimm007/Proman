@@ -161,3 +161,10 @@ C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\o
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.csproj.CopyComplete
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.csprojAssemblyReference.cache
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\ProjectReport.cshtml.g.cs
+C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\Index.g.cshtml.cs
+C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\AssignPerson.g.cshtml.cs
+C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\AssignRoleToPerson.g.cshtml.cs
+C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\Details.g.cshtml.cs
+C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\ProjectReport.g.cshtml.cs
+C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\RemovePersonFromProject.g.cshtml.cs
+C:\Users\Joshua\Dropbox\ETSU\Fall-2019\Adv-web\Proman - Copy\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\RemoveRoleFromPerson.g.cshtml.cs
