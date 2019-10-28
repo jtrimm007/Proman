@@ -11,8 +11,7 @@
 <div>
     <h4>ProjectReportVM</h4>
     <hr />
-    <dl class="row">
-    </dl>
+    <dl class="row"></dl>
 </div>
 <table>
     <thead>
@@ -82,21 +81,29 @@
                     }
                 </td>
                 <td class="border">
-                    
+                    @{
+                        decimal total = 0;
+
+                    }
                     @foreach (var eachPerson in eachProject.Value)
                     {
-                       
-                        <span>
-                            @(eachPerson.Value.Values.Sum())
 
-                            @foreach (var eachRole in eachPerson.Value)
-                            {
+                        <span>
+
+
+
+                            @{
+                                @*Add each line member rate together*@
+                                total = total + eachPerson.Value.Values.Sum();
+
 
 
                             }
                         </span><br />
                     }
 
+                    @*Display the total hourly rate for each project*@
+                    $@(total)
                 </td>
 
             </tr>
