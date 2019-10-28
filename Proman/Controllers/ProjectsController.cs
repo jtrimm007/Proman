@@ -136,6 +136,8 @@
             return View(model);
         }
 
+
+
         /// <summary>
         /// The Details method gets the details about a specific project with the project id.
         /// </summary>
