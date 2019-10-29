@@ -16,14 +16,29 @@
         /// Defines the _personRepo
         /// </summary>
         private IPerson _personRepo;
+
+        /// <summary>
+        /// Defines the _projectRepo
+        /// </summary>
         private IProject _projectRepo;
+
+        /// <summary>
+        /// Defines the _roleRepo
+        /// </summary>
         private IRole _roleRepo;
+
+        /// <summary>
+        /// Defines the _projectRoleRepo
+        /// </summary>
         private IProjectRole _projectRoleRepo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonController"/> class.
         /// </summary>
         /// <param name="person"></param>
+        /// <param name="projectRepo">The projectRepo<see cref="IProject"/></param>
+        /// <param name="roleRepo">The roleRepo<see cref="IRole"/></param>
+        /// <param name="projectRoleRepo">The projectRoleRepo<see cref="IProjectRole"/></param>
         public PersonController(IPerson person, IProject projectRepo, IRole roleRepo, IProjectRole projectRoleRepo)
         {
             _personRepo = person;
@@ -32,6 +47,10 @@
             _projectRoleRepo = projectRoleRepo;
         }
 
+        /// <summary>
+        /// The PersonReport
+        /// </summary>
+        /// <returns>The <see cref="IActionResult"/></returns>
         public IActionResult PersonReport()
         {
             var projects = _projectRepo.ReadAll().ToList();
@@ -55,24 +74,24 @@
             //Loop through each project
             foreach (var pro in model.Person)
             {
-                List<int> persons = new List<int>();
-                persons = _projectRoleRepo.SelectPeopleOnProject(pro.Id);
-                Dictionary<string, Dictionary<Role, decimal>> personAndRole = new Dictionary<string, Dictionary<Role, decimal>>();
+                List<int> projectsList = new List<int>();
+                projectsList = _projectRoleRepo.SelectProjectsAssignedToPeople(pro.Id);
+                Dictionary<Project, Dictionary<Role, decimal>> projectAndRole = new Dictionary<Project, Dictionary<Role, decimal>>();
                 //testing
                 List<decimal> testing = new List<decimal>();
 
                 //Loop through each person
-                foreach (var p in persons)
+                foreach (var p in projectsList)
                 {
                     //Get a person
-                    var personAssigned = _personRepo.Read(p);
+                    var projectAssigned = _projectRepo.Read(p);
 
                     //Use string interpulation to create the name
-                    var name = $"{personAssigned.FirstName} {personAssigned.LastName}";
+                    var nameOfProject = $"{projectAssigned.Name}";
                     //List<string> peopleOnProject = _personRepo.SelectAllPeopleById(p);
 
                     //Get all the project role by user id and project id
-                    List<int> roleIds = _projectRoleRepo.SelectRoleOnProjectByPersonId(pro.Id, p);
+                    List<int> roleIds = _projectRoleRepo.SelectRoleOnProjectByPersonId(p, pro.Id);
 
                     //Create a list to store roles and hourly rate relationships
                     Dictionary<Role, decimal> assignedRoles = new Dictionary<Role, decimal>();
@@ -83,7 +102,7 @@
                     {
                         //Get each hourly rate for each project, person, and role. Then add it to a dictionary. 
                         var readRoles = _roleRepo.Read(role);
-                        var hourly = _projectRoleRepo.HourlyRate(p, pro.Id, role);
+                        var hourly = _projectRoleRepo.HourlyRate(pro.Id, p, role);
                         assignedRoles.Add(readRoles, hourly);
 
                         //Testing total hourly rates
@@ -93,28 +112,27 @@
 
 
                     //Check to see if the user has been added
-                    if (!personAndRole.ContainsKey(name))
+                    if (!projectAndRole.ContainsKey(projectAssigned))
                     {
                         //Add the user and roles if they have not been added
-                        personAndRole.Add(name, assignedRoles);
+                        projectAndRole.Add(projectAssigned, assignedRoles);
                     }
 
-
+                    if (!model.HourlyTotal.ContainsKey(projectAssigned))
+                    {
+                        model.HourlyTotal.Add(projectAssigned, testing.Sum());
+                    }
                 }
                 //Testing
-                //if (!model.HourlyTotal.ContainsKey(pro))
-                //{
-                //    model.HourlyTotal.Add(pro, testing.Sum());
-                //}
-                ////Put all the dictionaries together.
-                //model.ListOfProjectsAndPeople.Add(pro, personAndRole);
+
+                //Put all the dictionaries together.
+                model.ListOfProjectsAndPeople.Add(pro.FirstName, projectAndRole);
 
 
             }
 
             return View(model);
         }
-
 
         /// <summary>
         /// This method brings in the person to delete and hands off the information to display in the view.

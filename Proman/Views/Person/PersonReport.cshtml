@@ -14,12 +14,12 @@
 <table>
     <thead>
         <tr>
-            <th>Project</th>
-            <th># of People</th>
+            <th>People</th>
+            <th># of Projects</th>
 
             <th>
 
-                People on project
+                Project assigned
 
             </th>
             <th>Roles</th>
@@ -32,31 +32,32 @@
 
 
 
-        @foreach (var eachProject in Model.ListOfProjectsAndPeople)
+        @foreach (var eachPerson in Model.ListOfProjectsAndPeople)
         {
             <tr>
                 <td class="border">
-                    @Html.DisplayFor(modelItem => eachProject.Key.Name)
+                    @Html.DisplayFor(modelItem => eachPerson.Key)
                 </td>
                 <td class="border">
-                    @Html.DisplayFor(modelItem => eachProject.Value.Count)
+                    @Html.DisplayFor(modelItem => eachPerson.Value.Count)
                 </td>
                 <td class="border">
-
-                    @foreach (var eachPerson in eachProject.Value)
+                    @*Loop through and get all the project names*@
+                    @foreach (var eachProject in eachPerson.Value)
                     {
                         <span>
-                            @Html.DisplayFor(modelItem => eachPerson.Key)
+                            @Html.DisplayFor(modelItem => eachProject.Key.Name)
                         </span><br />
                     }
                 </td>
                 <td class="border">
 
-                    @foreach (var eachPerson in eachProject.Value)
+                    @foreach (var each in eachPerson.Value)
                     {
                         <span>
 
-                            @foreach (var eachRole in eachPerson.Value)
+
+                            @foreach (var eachRole in each.Value)
                             {
                                 <span>@Html.DisplayFor(modelItem => eachRole.Key.Name), </span>
 
@@ -66,11 +67,11 @@
                 </td>
                 <td class="border">
 
-                    @foreach (var eachPerson in eachProject.Value)
+                    @foreach (var each in eachPerson.Value)
                     {
                         <span>
 
-                            @foreach (var eachRole in eachPerson.Value)
+                            @foreach (var eachRole in each.Value)
                             {
                                 <span>$@Html.DisplayFor(modelItem => eachRole.Value), </span>
 
@@ -83,7 +84,7 @@
                         decimal total = 0;
 
                     }
-                    @foreach (var eachPerson in eachProject.Value)
+                    @foreach (var each in eachPerson.Value)
                     {
 
                         <span>
@@ -92,7 +93,7 @@
 
                             @{
                                 @*Add each line member rate together*@
-                                total = total + eachPerson.Value.Values.Sum();
+                                total = total + each.Value.Values.Sum();
 
 
 

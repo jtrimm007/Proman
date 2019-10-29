@@ -78,5 +78,8 @@
         /// <param name="id">The id<see cref="int"/></param>
         /// <returns>The <see cref="List{int}"/></returns>
         List<int> SelectProjectOnPeople(int id);
+
+
+        List<int> SelectProjectsAssignedToPeople(int id);
     }
 }

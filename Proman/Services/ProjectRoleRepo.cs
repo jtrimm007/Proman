@@ -58,6 +58,11 @@
             return _db.ProjectRole.Where(x => x.ProjectId == id).Select(x => x.PersonId).ToList();
         }
 
+        public List<int> SelectProjectsAssignedToPeople(int id)
+        {
+            return _db.ProjectRole.Where(x => x.PersonId == id).Select(x => x.ProjectId).ToList();
+        }
+
         /// <summary>
         /// The SelectProjectOnPeople
         /// </summary>
