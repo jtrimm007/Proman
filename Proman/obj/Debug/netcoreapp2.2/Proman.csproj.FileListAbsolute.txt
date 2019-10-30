@@ -140,6 +140,7 @@ C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\o
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\AddPerson.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\DeletePerson.cshtml.g.cs
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\Details.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\Edit.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\Index.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\PersonReport.cshtml.g.cs
@@ -155,6 +156,7 @@ C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\o
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Projects\RemoveRoleFromPerson.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\AddRole.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\DeleteRole.cshtml.g.cs
+C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\Details.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\Edit.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\Index.cshtml.g.cs
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs
@@ -169,6 +171,3 @@ C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\o
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.dll
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.pdb
 C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.csproj.CopyComplete
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Proman.csprojAssemblyReference.cache
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Person\Details.cshtml.g.cs
-C:\Users\Joshua\Dropbox (Personal)\ETSU\Fall-2019\Adv-web\Proman\Proman\Proman\obj\Debug\netcoreapp2.2\Razor\Views\Roles\Details.cshtml.g.cs

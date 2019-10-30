@@ -236,7 +236,12 @@
         {
             var people = _personRepo.ReadAll().OrderBy(s => s.FirstName);
 
-            return View(people);
+            if(people != null)
+            {
+                return View(people);
+            }
+
+            return View();
         }
     }
 }

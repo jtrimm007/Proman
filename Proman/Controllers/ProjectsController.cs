@@ -219,7 +219,7 @@
             }
 
             //Set the number of people assigned to the project
-            model.NumberOfPeopleAssigned = model.PeopleAssignedToProject.Count;
+            model.NumberOfPeopleAssigned = model.PersonRoles.Count;
 
             return View(model);
         }
@@ -403,20 +403,26 @@
         [HttpPost]
         public IActionResult AssignRole(int personId, int projectId, int roleId, decimal hourlyRate)
         {
-            //Declaire a new PR object.
-            ProjectRole projectRole = new ProjectRole();
+            if(ModelState.IsValid)
+            {
+                //Declaire a new PR object.
+                ProjectRole projectRole = new ProjectRole();
 
-            //Set the properties
-            projectRole.PersonId = personId;
-            projectRole.ProjectId = projectId;
-            projectRole.HourlyRate = hourlyRate;
-            projectRole.RoleId = roleId;
+                //Set the properties
+                projectRole.PersonId = personId;
+                projectRole.ProjectId = projectId;
+                projectRole.HourlyRate = hourlyRate;
+                projectRole.RoleId = roleId;
 
-            //Create the role in the PR table
-            _projectRoleRepo.Create(projectRole);
+                //Create the role in the PR table
+                _projectRoleRepo.Create(projectRole);
 
-            //Redirect back to the project details page.
-            return RedirectToAction("Details", "Projects", new { id = projectId });
+                //Redirect back to the project details page.
+                return RedirectToAction("Details", "Projects", new { id = projectId });
+            }
+
+            return View();
+
         }
 
         /// <summary>
@@ -502,6 +508,21 @@
         {
 
             _projectRepo.Delete(project.Id);
+
+            //Get a list of all the associated columns in the ProjecRoles table to delete
+            var listOfProjectsInPR = _projectRoleRepo.ReadAll().Where(p => p.ProjectId == project.Id);
+
+            //Make sure the list isn't null
+            if(listOfProjectsInPR != null)
+            {
+                //For each role assigned to the project, remove the column.
+                foreach(var each in listOfProjectsInPR)
+                {
+                    _projectRoleRepo.Delete(each.Id);
+                }
+
+            }
+
             return RedirectToAction("Index", "Projects");
         }
 
