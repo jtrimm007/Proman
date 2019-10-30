@@ -1,14 +1,14 @@
 ﻿@model Proman.Models.ViewModels.RemovePersonProjectRoleVM
 
 @{
-    ViewData["Title"] = "RemovePersonFromProject";
+    ViewData["Title"] = "Remove Person From Project";
 }
 
-<h1>RemovePersonFromProject</h1>
+    <h1>@ViewData["Title"]</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>RemovePersonProjectRoleVM</h4>
+    <h4>Removing @Html.DisplayFor(modelItem => Model.UserName) from @Html.DisplayFor(modelItem => Model.ProjectName)</h4>
     <hr />
     <dl class="row">
     </dl>
@@ -22,10 +22,11 @@
 
         <strong>Person's Roles: </strong><br />
 
-        @foreach (var role in Model.UserRoles)
+        @*Loop through all of the persons' roles for display*@
+        @foreach (var role in Model.UserRoles.OrderBy(s => s.Name))
         {
 
-            @Html.DisplayFor(modelItem => role.Name)
+            @Html.DisplayFor(modelItem => role.Name)<br />
         }
         <br />
         <input type="submit" value="Yes, Remove" class="btn btn-danger" /> |

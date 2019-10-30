@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joshua\\Dropbox\\ETSU\\Fall-2019\\Adv-web\\Proman - Copy\\Proman\\Proman.csproj": {}
+    "C:\\Users\\Joshua\\Dropbox (Personal)\\ETSU\\Fall-2019\\Adv-web\\Proman\\Proman\\Proman\\Proman.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joshua\\Dropbox\\ETSU\\Fall-2019\\Adv-web\\Proman - Copy\\Proman\\Proman.csproj": {
+    "C:\\Users\\Joshua\\Dropbox (Personal)\\ETSU\\Fall-2019\\Adv-web\\Proman\\Proman\\Proman\\Proman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joshua\\Dropbox\\ETSU\\Fall-2019\\Adv-web\\Proman - Copy\\Proman\\Proman.csproj",
+        "projectUniqueName": "C:\\Users\\Joshua\\Dropbox (Personal)\\ETSU\\Fall-2019\\Adv-web\\Proman\\Proman\\Proman\\Proman.csproj",
         "projectName": "Proman",
-        "projectPath": "C:\\Users\\Joshua\\Dropbox\\ETSU\\Fall-2019\\Adv-web\\Proman - Copy\\Proman\\Proman.csproj",
+        "projectPath": "C:\\Users\\Joshua\\Dropbox (Personal)\\ETSU\\Fall-2019\\Adv-web\\Proman\\Proman\\Proman\\Proman.csproj",
         "packagesPath": "C:\\Users\\Joshua\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joshua\\Dropbox\\ETSU\\Fall-2019\\Adv-web\\Proman - Copy\\Proman\\obj\\",
+        "outputPath": "C:\\Users\\Joshua\\Dropbox (Personal)\\ETSU\\Fall-2019\\Adv-web\\Proman\\Proman\\Proman\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
@@ -66,10 +66,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

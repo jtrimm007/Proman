@@ -34,16 +34,14 @@
             </dt>
             <dd class="col-sm-10">
                 <input name="HourlyRate" value="@Model.HourlyRate" asp-for="@Model.HourlyRate" />
-
-
             </dd>
             <dt class="col-sm-2">
                 Available Roles
             </dt>
             <dd class="col-sm-10">
                 <select name="RoleId" id="RoleId">
-
-                    @foreach (var each in Model.Roles)
+                    @*Loop through each role that is available to assign to the person for this project*@
+                    @foreach (var each in Model.Roles.OrderBy(s => s.Name))
                     {
 
                         <option value="@each.Id" >

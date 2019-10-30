@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Proman.Models.DBEntities;
     using Proman.Services;
+    using System.Linq;
 
     /// <summary>
     /// Defines the <see cref="RolesController" />
@@ -29,7 +30,7 @@
         /// <returns>The <see cref="IActionResult"/></returns>
         public IActionResult Index()
         {
-            var role = _roleRepo.ReadAll();
+            var role = _roleRepo.ReadAll().OrderBy(s => s.Name);
 
             return View(role);
         }
@@ -123,6 +124,18 @@
                 _roleRepo.Update(role);
                 return RedirectToAction("Index", "Roles");
             }
+
+            return View(role);
+        }
+
+        /// <summary>
+        /// Sets up the display for the details about a role.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>A View of the role object.</returns>
+        public IActionResult Details(int id)
+        {
+            var role = _roleRepo.Read(id);
 
             return View(role);
         }

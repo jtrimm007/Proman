@@ -1,64 +1,64 @@
 ﻿@model Proman.Models.ViewModels.ProjectReportVM
 
 @{
-    ViewData["Title"] = "ProjectReport";
+    ViewData["Title"] = "Project Report";
 
 
 }
 
-<h1>ProjectReport</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div>
-    <h4>ProjectReportVM</h4>
+    <h4>Project ReportVM</h4>
     <hr />
     <dl class="row"></dl>
 </div>
 <table>
     <thead>
         <tr>
-            <th>Project</th>
-            <th># of People</th>
+            <th class="p-3">Project</th>
+            <th class="p-3"># of People</th>
 
-            <th>
+            <th class="p-3">
 
                 People on project
 
             </th>
-            <th>Roles</th>
-            <th>Hourly Rate</th>
-            <th>Total Hourly</th>
+            <th class="p-3">Roles</th>
+            <th class="p-3">Hourly Rate</th>
+            <th class="p-3">Total Hourly</th>
 
         </tr>
     </thead>
     <tbody>
 
 
-
-        @foreach (var eachProject in Model.ListOfProjectsAndPeople)
+        @*Loop through each project*@
+        @foreach (var eachProject in Model.ListOfProjectsAndPeople.OrderBy(s => s.Key.Name))
         {
             <tr>
-                <td class="border">
+                <td class="border p-3">
                     @Html.DisplayFor(modelItem => eachProject.Key.Name)
                 </td>
-                <td class="border">
+                <td class="border p-3">
                     @Html.DisplayFor(modelItem => eachProject.Value.Count)
                 </td>
-                <td class="border">
-
-                    @foreach (var eachPerson in eachProject.Value)
+                <td class="border p-3">
+                    @*Loop through each person assigned to the project*@
+                    @foreach (var eachPerson in eachProject.Value.OrderBy(s => s.Key))
                     {
                         <span>
                             @Html.DisplayFor(modelItem => eachPerson.Key)
                         </span><br />
                     }
                 </td>
-                <td class="border">
-
-                    @foreach (var eachPerson in eachProject.Value)
+                <td class="border p-3">
+                    @*Loop through each set of the assigned roles for each person*@
+                    @foreach (var eachPerson in eachProject.Value.OrderBy(s => s.Key))
                     {
                         <span>
-
-                            @foreach (var eachRole in eachPerson.Value)
+                            @*Loop through each role*@
+                            @foreach (var eachRole in eachPerson.Value.OrderBy(s => s.Key.Name))
                             {
                                 <span>@Html.DisplayFor(modelItem => eachRole.Key.Name), </span>
 
@@ -66,13 +66,13 @@
                         </span><br />
                     }
                 </td>
-                <td class="border">
-
-                    @foreach (var eachPerson in eachProject.Value)
+                <td class="border p-3">
+                    @*Loop through each of the values for hourly rate assigned to the project*@
+                    @foreach (var eachPerson in eachProject.Value.OrderBy(s => s.Key))
                     {
                         <span>
-
-                            @foreach (var eachRole in eachPerson.Value)
+                            @*Loop through each rate for each role*@
+                            @foreach (var eachRole in eachPerson.Value.OrderBy(s => s.Key.Name))
                             {
                                 <span>$@Html.DisplayFor(modelItem => eachRole.Value), </span>
 
@@ -80,7 +80,7 @@
                         </span><br />
                     }
                 </td>
-                <td class="border">
+                <td class="border p-3">
                     @{
                         decimal total = 0;
 

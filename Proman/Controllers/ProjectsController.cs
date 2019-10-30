@@ -79,8 +79,6 @@
                 List<int> persons = new List<int>();
                 persons = _projectRoleRepo.SelectPeopleOnProject(pro.Id);
                 Dictionary<string, Dictionary<Role, decimal>> personAndRole = new Dictionary<string, Dictionary<Role, decimal>>();
-                //testing
-                List<decimal> testing = new List<decimal>();
 
                 //Loop through each person
                 foreach (var p in persons)
@@ -105,11 +103,12 @@
                         //Get each hourly rate for each project, person, and role. Then add it to a dictionary. 
                         var readRoles = _roleRepo.Read(role);
                         var hourly = _projectRoleRepo.HourlyRate(p, pro.Id, role);
-                        assignedRoles.Add(readRoles, hourly);
 
-                        //Testing total hourly rates
-                        testing.Add(hourly);
-
+                        //If the role isn't null, add it to the list.
+                        if(readRoles != null)
+                        {
+                            assignedRoles.Add(readRoles, hourly);
+                        }
                     }
 
 
@@ -122,14 +121,9 @@
 
 
                 }
-                //Testing
-                if (!model.HourlyTotal.ContainsKey(pro))
-                {
-                    model.HourlyTotal.Add(pro, testing.Sum());
-                }
+ 
                 //Put all the dictionaries together.
                 model.ListOfProjectsAndPeople.Add(pro, personAndRole);
-
 
             }
 
@@ -580,7 +574,7 @@
         /// <returns>The <see cref="IActionResult"/></returns>
         public IActionResult Index()
         {
-            var project = _projectRepo.ReadAll();
+            var project = _projectRepo.ReadAll().OrderBy(s => s.Name);
 
             return View(project);
         }

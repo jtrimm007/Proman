@@ -48,11 +48,12 @@
         }
 
         /// <summary>
-        /// The PersonReport
+        /// The PersonReport displays all the people and the projects they are assigned to, with the associated roles, plus hourly rate.
         /// </summary>
         /// <returns>The <see cref="IActionResult"/></returns>
         public IActionResult PersonReport()
         {
+            //Read in all the repos for manipulation.
             var projects = _projectRepo.ReadAll().ToList();
             var people = _personRepo.ReadAll().ToList();
             var roles = _roleRepo.ReadAll().ToList();
@@ -77,8 +78,6 @@
                 List<int> projectsList = new List<int>();
                 projectsList = _projectRoleRepo.SelectProjectsAssignedToPeople(pro.Id);
                 Dictionary<Project, Dictionary<Role, decimal>> projectAndRole = new Dictionary<Project, Dictionary<Role, decimal>>();
-                //testing
-                List<decimal> testing = new List<decimal>();
 
                 //Loop through each person
                 foreach (var p in projectsList)
@@ -86,16 +85,11 @@
                     //Get a person
                     var projectAssigned = _projectRepo.Read(p);
 
-                    //Use string interpulation to create the name
-                    var nameOfProject = $"{projectAssigned.Name}";
-                    //List<string> peopleOnProject = _personRepo.SelectAllPeopleById(p);
-
                     //Get all the project role by user id and project id
                     List<int> roleIds = _projectRoleRepo.SelectRoleOnProjectByPersonId(p, pro.Id);
 
                     //Create a list to store roles and hourly rate relationships
                     Dictionary<Role, decimal> assignedRoles = new Dictionary<Role, decimal>();
-
 
                     //Loop through each role
                     foreach (var role in roleIds)
@@ -103,32 +97,33 @@
                         //Get each hourly rate for each project, person, and role. Then add it to a dictionary. 
                         var readRoles = _roleRepo.Read(role);
                         var hourly = _projectRoleRepo.HourlyRate(pro.Id, p, role);
-                        assignedRoles.Add(readRoles, hourly);
 
-                        //Testing total hourly rates
-                        testing.Add(hourly);
-
+                        //If the role does not come back null, add it to the list.
+                        if(readRoles != null)
+                        {
+                             assignedRoles.Add(readRoles, hourly);
+                        }
                     }
 
 
-                    //Check to see if the user has been added
+                    //Check to see if the project has been added
                     if (!projectAndRole.ContainsKey(projectAssigned))
                     {
                         //Add the user and roles if they have not been added
                         projectAndRole.Add(projectAssigned, assignedRoles);
                     }
-
-                    if (!model.HourlyTotal.ContainsKey(projectAssigned))
-                    {
-                        model.HourlyTotal.Add(projectAssigned, testing.Sum());
-                    }
                 }
-                //Testing
 
-                //Put all the dictionaries together.
-                model.ListOfProjectsAndPeople.Add(pro.FirstName, projectAndRole);
+                //Define full name
+                string fullName = $"{pro.FirstName} {pro.LastName}";
 
+                //Check to see if the person key has been added.
+                if(!model.ListOfProjectsAndPeople.ContainsKey(fullName))
+                {
+                    //Put all the dictionaries together.
+                    model.ListOfProjectsAndPeople.Add(fullName, projectAndRole);
 
+                }
             }
 
             return View(model);
@@ -168,6 +163,18 @@
         public IActionResult AddPerson()
         {
             return View();
+        }
+
+        /// <summary>
+        /// Gives the details of a spacific person for the view. 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>A View of a person object</returns>
+        public IActionResult Details(int id)
+        {
+            var person = _personRepo.Read(id);
+
+            return View(person);
         }
 
         /// <summary>
@@ -227,7 +234,7 @@
         /// <returns>The <see cref="IActionResult"/></returns>
         public IActionResult Index()
         {
-            var people = _personRepo.ReadAll();
+            var people = _personRepo.ReadAll().OrderBy(s => s.FirstName);
 
             return View(people);
         }

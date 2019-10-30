@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Proman.Models.DBEntities.Person>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Person";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
     <a asp-action="AddPerson">Add Preson</a>
@@ -31,6 +31,7 @@
         </tr>
     </thead>
     <tbody>
+        @*Loop through all the people*@
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -50,7 +51,7 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-controller="Person" asp-route-id="@item.Id">Edit</a> |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                <a asp-action="Details" asp-controller="Person" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="DeletePerson" asp-controller="Person" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

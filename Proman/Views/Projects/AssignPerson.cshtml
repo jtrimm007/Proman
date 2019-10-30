@@ -8,7 +8,7 @@
 <h1>Assign Person to Project @Html.DisplayFor(Model => Model.ProjectName)</h1>
 
 <div>
-    <h4>AddPersonToProjectVM</h4>
+    <h4>Add a Person To the Project</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -24,12 +24,13 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.PeopleAvailable)
+                    People Available
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var each in Model.PeopleAvailable)
+            @*Loop through all the available people to add to the project*@
+            @foreach (var each in Model.PeopleAvailable.OrderBy(s => s.FirstName))
             {
                 <tr>
                     <td>

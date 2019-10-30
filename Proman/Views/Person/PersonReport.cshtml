@@ -1,115 +1,97 @@
 ﻿@model Proman.Models.ViewModels.PersonReportVM
-
 @{
-    ViewData["Title"] = "PersonReport";
+    ViewData["Title"] = "Person Report";
 }
-
-<h1>PersonReport</h1>
-
+<h1>@ViewData["Title"]</h1>
 <div>
-    <h4>PersonReportVM</h4>
+    <h4>View all the current people and the projects they are assigned to.</h4>
     <hr />
     <dl class="row"></dl>
 </div>
-<table>
+<table class="m-5">
     <thead>
         <tr>
-            <th>People</th>
-            <th># of Projects</th>
-
-            <th>
-
-                Project assigned
-
-            </th>
-            <th>Roles</th>
-            <th>Hourly Rate</th>
-            <th>Total Hourly</th>
-
+            <th class="p-3">People</th>
+            <th class="p-3"># of Projects</th>
+            <th class="p-3">Project assigned</th>
+            <th class="p-3">Roles</th>
+            <th class="p-3">Hourly Rate</th>
+            <th class="p-3">Total Hourly</th>
         </tr>
     </thead>
     <tbody>
-
-
-
-        @foreach (var eachPerson in Model.ListOfProjectsAndPeople)
+        @*Start looping through the list to pull out the information*@
+        @foreach (var eachPerson in Model.ListOfProjectsAndPeople.OrderBy(s => s.Key))
         {
             <tr>
-                <td class="border">
+                <td class="border p-3">
+                    @*Get the persons name*@
                     @Html.DisplayFor(modelItem => eachPerson.Key)
                 </td>
-                <td class="border">
+                <td class="border p-3">
+                    @*Get the number of projects the person is on*@
                     @Html.DisplayFor(modelItem => eachPerson.Value.Count)
                 </td>
-                <td class="border">
+                <td class="border p-3">
                     @*Loop through and get all the project names*@
-                    @foreach (var eachProject in eachPerson.Value)
+                    @foreach (var eachProject in eachPerson.Value.OrderBy(s => s.Key.Name))
                     {
                         <span>
+                            @*Names of the projects*@
                             @Html.DisplayFor(modelItem => eachProject.Key.Name)
                         </span><br />
                     }
                 </td>
-                <td class="border">
-
-                    @foreach (var each in eachPerson.Value)
+                <td class="border p-3">
+                    @*Loop through and get the roles the person is assigned to for each project*@
+                    @foreach (var each in eachPerson.Value.OrderBy(s => s.Key.Name))
                     {
                         <span>
-
-
-                            @foreach (var eachRole in each.Value)
+                            @*Get the roles for each project role*@
+                            @foreach (var eachRole in each.Value.OrderBy(s => s.Key.Name))
                             {
+                                        @*Display the project roles*@
                                 <span>@Html.DisplayFor(modelItem => eachRole.Key.Name), </span>
-
                             }
                         </span><br />
                     }
                 </td>
-                <td class="border">
-
+                <td class="border p-3">
+                    @*Start looping through the hourly rates for each project *@
                     @foreach (var each in eachPerson.Value)
                     {
                         <span>
-
+                            @*Loop through each rate*@
                             @foreach (var eachRole in each.Value)
                             {
+                                @*Then display each role rate*@
                                 <span>$@Html.DisplayFor(modelItem => eachRole.Value), </span>
-
                             }
                         </span><br />
                     }
                 </td>
-                <td class="border">
+                <td class="border p-3">
                     @{
+                        @*Set a variable for totaling the hourly rates*@
                         decimal total = 0;
-
                     }
+
+                    @*Loop through each person to get all the hourly rates*@
                     @foreach (var each in eachPerson.Value)
                     {
-
                         <span>
-
-
-
                             @{
                                 @*Add each line member rate together*@
                                 total = total + each.Value.Values.Sum();
-
-
-
                             }
                         </span><br />
                     }
-
                     @*Display the total hourly rate for each project*@
                     $@(total)
                 </td>
-
             </tr>
         }
-
-
-
     </tbody>
 </table>
 <a class="btn btn-primary" asp-action="Index" asp-controller="Home">Back to Home Page</a>
+
